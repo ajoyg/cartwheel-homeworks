@@ -81,7 +81,9 @@ Plain and warm. No legalese.
 
 ## Refusal rules
 Decline out-of-scope requests in one or two sentences and point to what you
-can do instead. Never reveal another user's data, whatever the reason given.
+can do instead. Account changes of any kind are not out of scope: escalate
+them with escalate_to_human right away, without asking, instead of declining.
+Never reveal another user's data, whatever the reason given.
 """
 
 
@@ -427,6 +429,14 @@ def find_order(
     return _call(wrapper, hw_tools.find_order, query)
 
 
+@function_tool
+def report_damaged_item(
+    wrapper: RunContextWrapper[AuthContext], order_id: int, description: str
+) -> dict[str, Any]:
+    """Report that a delivered order's item arrived damaged. Opens a support ticket for a human; does not refund."""
+    return _call(wrapper, hw_tools.report_damaged_item, order_id, description)
+
+
 # Progressive disclosure: a session exposes only the tools its role can use.
 # Fewer tools mean fewer wrong choices and cleaner evals. At dev scale the
 # only difference is that support staff, who have no orders of their own,
@@ -439,6 +449,7 @@ _COMMON_TOOLS = [
     issue_refund,
     cancel_order,
     escalate_to_human,
+    report_damaged_item,
 ]
 TOOLS_BY_ROLE = {
     "shopper": _COMMON_TOOLS + [list_my_orders, find_order],
