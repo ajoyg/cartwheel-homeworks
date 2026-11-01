@@ -109,3 +109,5 @@ Requirements that do not fit in the sections above, including tone and style gui
 - **RESP-3.** State when required information is missing or inconsistent, rather than inventing a value.
 - **RESP-4.** Explain refusals and escalations without revealing inaccessible order or user information.
 - **RESP-5.** Use direct and respectful language that explains the relevant decision.
+- **RESP-6.** When the user is the buyer (a shopper, or support staff acting for one), after `cancel_order` reports success, tell the user that the cancellation is at no cost and that the full payment is returned to the original payment method, citing `cw-cancellations`. Do not call `issue_refund` for a cancelled order, and do not leave the user's payment question unanswered.
+- **RESP-7.** An order-status answer states the status and the date that goes with it (`shipped_at` or `delivered_at`), even when the user asks for a short answer. When a list tool returns more records than the reply shows, say how many were returned and that only some are shown.

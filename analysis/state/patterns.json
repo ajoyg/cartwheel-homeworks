@@ -1,1 +1,789 @@
-{"modes": []}
+{
+  "modes": [
+    {
+      "name": "uncited_policy_claim",
+      "status": "confirmed",
+      "definition": "The reply states a policy rule or a policy-based verdict (payouts, returns, refunds, cancellations), including an eligibility verdict taken only from the order's refund_eligible flag, without citing a policy identifier.",
+      "requirement_source": "SPEC RESP-1",
+      "evaluator_type": "llm_judge",
+      "product_change": "Prompt and retrieval: look up the relevant policy and cite its identifier in every policy-based answer.",
+      "boundary": "An eligibility verdict counts even when it comes only from refund_eligible. A reply that reports record facts without a verdict or rule is not this mode. A rule that is wrong or goes beyond the policy text is incorrect_policy_claim. A refund-eligibility field in a list of record fields is a record fact; a sentence such as 'please note this order is not eligible' is a verdict (0150 and 0010 against 0017). A statement that an order can or cannot be cancelled is a verdict.",
+      "nearest_mode": "missing_data_not_flagged",
+      "origin_annotation_ids": [
+        "ann-mvsylbh9-bvsr",
+        "ann-mvsy29yw-3r6b",
+        "ann-mvsxl1x5-pbpk",
+        "ann-mvt0hg2w-10b4",
+        "ann-1a18ec8bc02-2zeh",
+        "ann-1a18ec8bc04-kdo7",
+        "ann-mvvg2ql0-29q5",
+        "ann-1a18ec8bc09-aj1v",
+        "ann-1a19015b66f-xdvr",
+        "ann-1a19015b671-07uz",
+        "ann-1a19015b674-7cch",
+        "ann-1a19015b676-j0b7"
+      ],
+      "created_from": [
+        "d7baff7027d7a1bfacba0956dfd38797",
+        "97a428cb3db27ca8501963decbd09725",
+        "828cf4bbe8ba2c12408a165956f2eb24",
+        "d683231546729f315c4163bcf46b3173",
+        "e8e657e835a4a7598729568dfcb01359",
+        "43461341e77593dbf3d58a59be6897e0",
+        "043f4810f171110e7a19e2b3d7d283af",
+        "1a5cc2993e4173506b9911d7a6a175ee",
+        "9aabfdfdd0daaf9eb562ba95bb1b7709",
+        "9ab757e42345095d2df932b36035d1a2",
+        "002a95b214bcf0ad7533ee10ad09a8b4",
+        "4c46c3a3cbeaf095792752b77f82f07c"
+      ],
+      "example_trace_ids": [
+        "d7baff7027d7a1bfacba0956dfd38797",
+        "97a428cb3db27ca8501963decbd09725",
+        "828cf4bbe8ba2c12408a165956f2eb24",
+        "d683231546729f315c4163bcf46b3173",
+        "e8e657e835a4a7598729568dfcb01359",
+        "43461341e77593dbf3d58a59be6897e0",
+        "043f4810f171110e7a19e2b3d7d283af",
+        "1a5cc2993e4173506b9911d7a6a175ee",
+        "9aabfdfdd0daaf9eb562ba95bb1b7709",
+        "9ab757e42345095d2df932b36035d1a2",
+        "002a95b214bcf0ad7533ee10ad09a8b4",
+        "4c46c3a3cbeaf095792752b77f82f07c",
+        "585ee55e175bbfc89ce4a8f67d3b0a4c",
+        "3dbc69510b99c359b26676383d1a82ee",
+        "ea03f14dc0730a64bc7b0c2761158961",
+        "e9cb8f8886f92082edd31584df5d609f",
+        "a28845d9f326f9cb8defc9b6ac025fe2",
+        "93a6ce11d82db507e8586bb646837404",
+        "3db453043223ae316b8e9e5065ebd6fc",
+        "8946b0fc02f8afefd5929d6999e68244",
+        "55a9f3fb4ddfe1691066cf51b2290bc0",
+        "e620c5a2276963ece4c5ea1ac54d99a0",
+        "68e907d7b3be54ac3161778ced4f9c36",
+        "2ad55eee58c04b0dee3a0ad5a9215f6e",
+        "1ab42d63fb1837a5bd1d93481a54ca52",
+        "a5de92ea114e78e226a4823f4e659716",
+        "3b70873d23ddb5c19b468b8d531f5006",
+        "ac84aaeadb32f1b003f6009c74753959",
+        "9d61b6a59a5f3511814ce4c02306cc19",
+        "7dcbffe60152a46fbbbd2df3a1d87297",
+        "ba4f8c0882ae52b755279f476988a6a8",
+        "dc7e8a783728793709c4ce9073219d8e",
+        "6916146aff8b5f360fdf70aade21bdd8",
+        "52772bbec6b2427154b24316aed91d0d",
+        "2ae69d165c6d441e8495fe09699bf974",
+        "3299e63ed93b0c67353f1d1052024625",
+        "520526752e257303589faa33052c0cfe",
+        "f147f0fd6ce4d06180771c2988fd2fbf",
+        "07900c4240cb567ba411ca282f2aed74",
+        "816ef6ec2b08f15ecf6717302128bf48",
+        "4187edb18a9bda80a9a1b67c70b78a73",
+        "563aad94b78da5f07920a55dce6517bd",
+        "88bc74f0e4e0580374952dd24d067aea",
+        "7cfb289e8449ba84f1f3e647f30c4fe5",
+        "ff7d93055b281cc8d646947a978e2836",
+        "ccf97ab34d946fbaefc352cb723e5e5f",
+        "6ba92c528eda9477fddd413ddff1be1d",
+        "4efa764bdc00f2960b86d08f1dcf2135",
+        "52e360e2ba45985bdc3bc08b81f5abed",
+        "07d7adf1a8a0808ba00e4d029bdd106e",
+        "b1b170d7d44eec5a9eea2dbb98e329dc",
+        "f39a83b34b959e01cfa1d70d359315ca",
+        "eb1826a96c8fbb24d2ad4c75338f7a9a",
+        "a4380e59a66c5080ba429e7490d8f4b8",
+        "f7d7a47dedc285dcaa4af055923e4b46",
+        "3805a49e02a130594324057b277c776a"
+      ],
+      "close_negative_ids": [
+        "2d4e13a7d1328e797540cbec37382805",
+        "254389fe6da1da1b34ad567bfecb92d8",
+        "e52b3fa26e32208c692b25403bdfe86e"
+      ],
+      "first_seen_batch": "initial_random",
+      "revisions": [
+        {
+          "at": "2026-10-29T03:43:30+00:00",
+          "change": "created as a candidate from batch 1 open codes (first 15 conversations)",
+          "reason": "student kept the proposed grouping"
+        },
+        {
+          "at": "2026-10-29T04:20:20Z",
+          "change": "added support-0248 (ann-mvt0hg2w-10b4)",
+          "reason": "cluster batch: return verdict without a policy citation (0248)"
+        },
+        {
+          "at": "2026-10-30T21:48:02+00:00",
+          "change": "open boundary settled: a verdict taken only from refund_eligible is a policy claim",
+          "reason": "depth batch: 0017, 0050 and 0211 received different decisions; the student chose the rule that matches 0240, 0248 and 0249",
+          "previous_definition": "The reply states a policy rule or a policy-based verdict (payouts, returns, refunds, cancellations) without citing a policy identifier."
+        },
+        {
+          "at": "2026-10-31T03:51:44+00:00",
+          "change": "added 0208, 0212, 0213, 0215",
+          "reason": "second search round: correct verdicts with no citation, moved from incorrect_policy_claim's search"
+        },
+        {
+          "at": "2026-10-31T04:04:20+00:00",
+          "change": "confirmed",
+          "reason": "student approved confirming all 8 modes on 2026-10-30, after the second search round; each mode has at least 3 confirmed positives"
+        },
+        {
+          "at": "2026-10-31T16:18:00+00:00",
+          "change": "close negatives added from Part E labels: 0150, 0010, 0141",
+          "reason": "0150 and 0010 list refund eligibility as a record field with no verdict sentence; 0141 states the policy and cites it"
+        },
+        {
+          "at": "2026-10-31T16:18:00+00:00",
+          "change": "boundary sharpened: field lists against verdict sentences; cancellation verdicts included in both directions",
+          "reason": "Part E: 0150 and 0010 were labeled absent and 0017 present; 0060 and 0128 (cannot be cancelled) and 0052, 0053, 0055 (can be cancelled) are treated alike"
+        },
+        {
+          "at": "2026-10-31T17:36:43+00:00",
+          "change": "24 conversations labeled present in Part E after the final consistency check",
+          "reason": "a filter for verdict sentences with no policy identifier disagreed with these absent labels; the student reviewed the groups and applied the definition consistently; first-pass notes are kept as written"
+        }
+      ]
+    },
+    {
+      "name": "missing_data_not_flagged",
+      "status": "confirmed",
+      "definition": "A tool result has a null or inconsistent field that the answer depends on (for example delivered_at null on a delivered order, a delivery date before the ship date, a negative price), and the reply either does not say the data is missing or inconsistent, or says so but still gives a verdict that depends on it instead of escalating.",
+      "requirement_source": "SPEC RESP-3, ESC-4",
+      "evaluator_type": "code",
+      "product_change": "Prompt instruction: when a required field is missing or inconsistent, treat derived flags such as refund_eligible as unreliable, say what is missing, and escalate; or a data-quality flag in the tool result.",
+      "boundary": "Applies only when the missing field is in the tool result the reply relies on; a verdict given without a citation but with complete data belongs to uncited_policy_claim.",
+      "nearest_mode": "uncited_policy_claim",
+      "origin_annotation_ids": [
+        "ann-mvsy9si5-c27v",
+        "ann-mvsxvfln-vw3b",
+        "ann-mvt3yzt2-oiqs",
+        "ann-mvt429yu-sjbj",
+        "ann-mvt47b5i-68q6"
+      ],
+      "created_from": [
+        "585ee55e175bbfc89ce4a8f67d3b0a4c",
+        "3dbc69510b99c359b26676383d1a82ee",
+        "feb545d0db0218bcf7340b4b3902566c",
+        "1ab42d63fb1837a5bd1d93481a54ca52",
+        "2ad55eee58c04b0dee3a0ad5a9215f6e"
+      ],
+      "example_trace_ids": [
+        "585ee55e175bbfc89ce4a8f67d3b0a4c",
+        "3dbc69510b99c359b26676383d1a82ee",
+        "feb545d0db0218bcf7340b4b3902566c",
+        "1ab42d63fb1837a5bd1d93481a54ca52",
+        "2ad55eee58c04b0dee3a0ad5a9215f6e",
+        "4781a86dcdcefe3be01035dd2bb37066"
+      ],
+      "close_negative_ids": [
+        "2b713f08c560e610c8b52f5ffbccb036",
+        "a06fc875595110312c2d6a283f402076",
+        "774d4d17162141ea707170e3e12a8d2d"
+      ],
+      "first_seen_batch": "initial_random",
+      "revisions": [
+        {
+          "at": "2026-10-29T03:43:30+00:00",
+          "change": "created as a candidate from batch 1 open codes (first 15 conversations)",
+          "reason": "student kept the proposed grouping"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "added support-0196 via accepted suggestion sug-009",
+          "reason": "depth search: damaged record in the tool result"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "added support-0182 via accepted suggestion sug-010",
+          "reason": "depth search: damaged record in the tool result"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "added support-0180 via accepted suggestion sug-012",
+          "reason": "depth search: damaged record in the tool result"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "support-0200 recorded as a close negative (rejected sug-011)",
+          "reason": "The agent flagged the negative price"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "TAXONOMY REVISION: definition widened to include flagging the problem but still giving a verdict that depends on it",
+          "reason": "0180: the agent noted 'no delivery date' but still declared the order not returnable from refund_eligible; same fix as not flagging (treat as unreliable, escalate)",
+          "previous_definition": "A tool result has a null or inconsistent field that the answer depends on (for example delivered_at null on a delivered order), and the reply gives a verdict without saying that the data is missing or inconsistent."
+        },
+        {
+          "at": "2026-10-31T04:04:20+00:00",
+          "change": "confirmed",
+          "reason": "student approved confirming all 8 modes on 2026-10-30, after the second search round; each mode has at least 3 confirmed positives"
+        },
+        {
+          "at": "2026-10-31T16:18:00+00:00",
+          "change": "close negatives added from Part E labels: 0199",
+          "reason": "the agent flagged the negative price as an error"
+        },
+        {
+          "at": "2026-10-31T17:36:43+00:00",
+          "change": "close negatives added from Part E labels: 0205",
+          "reason": "the agent says the product has no title listed"
+        }
+      ]
+    },
+    {
+      "name": "asks_instead_of_acting",
+      "status": "confirmed",
+      "definition": "The user's request clearly calls for a tool action the agent is allowed to take (search or look up records, issue or queue a refund, escalate to a human), and the agent asks for confirmation or input it does not need instead of taking the action.",
+      "requirement_source": "SPEC ESC-1, ESC-2 (refunds, escalations); PURPOSE-1 (acts through tools) for searches and lookups",
+      "evaluator_type": "llm_judge",
+      "product_change": "Prompt instruction: act on a clear request with the matching tool (search_products, issue_refund, escalate_to_human) without asking permission or optional details first.",
+      "boundary": "Asking for information that is genuinely missing and required by the tool (no order number when several orders match, an ambiguous item) is not this mode. Optional filters (budget, style, store) are not required: search_products works without them. A question that follows a purely informational request (the user asked only whether something is possible) is not this mode, because no action was requested. Against escalation_offered_after_denial: here the agent should act and asks; there it offers an action that should not be offered.",
+      "nearest_mode": "escalation_offered_after_denial",
+      "origin_annotation_ids": [
+        "ann-mvsynh4l-4m2l",
+        "ann-mvsxigsm-fg4q",
+        "ann-mvt0dy8s-c6am",
+        "ann-mvt21qe5-jvog",
+        "ann-mvt2334z-noao",
+        "ann-mvt1xd36-rmrp",
+        "ann-mvt33fb3-v6lm",
+        "ann-mvt2yod7-d9xw",
+        "ann-mvvhcc8j-5p1o",
+        "ann-mvvknmx9-7u8c"
+      ],
+      "created_from": [
+        "e9cb8f8886f92082edd31584df5d609f",
+        "828cf4bbe8ba2c12408a165956f2eb24",
+        "ea03f14dc0730a64bc7b0c2761158961",
+        "c5045833d1db13809a8abbfd7a7c143c",
+        "34fc5c9aaef14aeb2706d590fb193657",
+        "93a6ce11d82db507e8586bb646837404",
+        "68e907d7b3be54ac3161778ced4f9c36",
+        "3b54db69549daddd219676c18359f75a",
+        "a5de92ea114e78e226a4823f4e659716",
+        "9d61b6a59a5f3511814ce4c02306cc19"
+      ],
+      "example_trace_ids": [
+        "e9cb8f8886f92082edd31584df5d609f",
+        "828cf4bbe8ba2c12408a165956f2eb24",
+        "ea03f14dc0730a64bc7b0c2761158961",
+        "c5045833d1db13809a8abbfd7a7c143c",
+        "34fc5c9aaef14aeb2706d590fb193657",
+        "93a6ce11d82db507e8586bb646837404",
+        "68e907d7b3be54ac3161778ced4f9c36",
+        "3b54db69549daddd219676c18359f75a",
+        "a5de92ea114e78e226a4823f4e659716",
+        "9d61b6a59a5f3511814ce4c02306cc19",
+        "a28845d9f326f9cb8defc9b6ac025fe2",
+        "ac84aaeadb32f1b003f6009c74753959"
+      ],
+      "close_negative_ids": [
+        "f7d7a47dedc285dcaa4af055923e4b46",
+        "3805a49e02a130594324057b277c776a",
+        "1a5cc2993e4173506b9911d7a6a175ee"
+      ],
+      "first_seen_batch": "initial_random",
+      "revisions": [
+        {
+          "at": "2026-10-29T03:43:30+00:00",
+          "change": "created as a candidate from batch 1 open codes (first 15 conversations)",
+          "reason": "student kept the proposed grouping"
+        },
+        {
+          "at": "2026-10-29T04:20:20Z",
+          "change": "added support-0030 (ann-mvt0dy8s-c6am)",
+          "reason": "cluster batch: asked for a refund reason the shopper had already given (0030)"
+        },
+        {
+          "at": "2026-10-29T04:51:32Z",
+          "change": "TAXONOMY REVISION: definition widened from write actions (refund, escalation) to any tool action the request calls for, including searches and lookups",
+          "reason": "batch 2 notes on 0080 (desk lamp) and 0082 (planner): the agent asked about style, budget or store instead of calling search_products; one prompt fix (act, do not ask unneeded questions) covers both, so the student merged rather than split",
+          "previous_definition": "The user's request requires an action the agent is allowed to take (issue or queue a refund, escalate to a human), and the agent asks for confirmation or input it does not need instead of taking the action."
+        },
+        {
+          "at": "2026-10-29T04:51:32Z",
+          "change": "added support-0080 (ann-mvt21qe5-jvog)",
+          "reason": "dimension batch: asked style/budget instead of searching (0080)"
+        },
+        {
+          "at": "2026-10-29T04:51:32Z",
+          "change": "added support-0082 (ann-mvt2334z-noao)",
+          "reason": "dimension batch: asked price range/store instead of searching (0082)"
+        },
+        {
+          "at": "2026-10-29T04:51:32Z",
+          "change": "added support-0250 (ann-mvt1xd36-rmrp)",
+          "reason": "dimension batch: offered escalation for a card change, never escalated (0250)"
+        },
+        {
+          "at": "2026-10-29T05:16:17Z",
+          "change": "added support-0155 (ann-mvt33fb3-v6lm)",
+          "reason": "dimension batch: asked to confirm a $90 refund instead of issuing it (0155)"
+        },
+        {
+          "at": "2026-10-29T05:16:17Z",
+          "change": "added support-0148 (ann-mvt2yod7-d9xw)",
+          "reason": "dimension batch: asked to recheck a valid order id instead of calling get_order (0148)"
+        },
+        {
+          "at": "2026-10-29T05:16:17Z",
+          "change": "0162 recorded as a close negative",
+          "reason": "cancel_order requires a reason; none was given, so asking for it falls under the boundary"
+        },
+        {
+          "at": "2026-10-30T21:48:02+00:00",
+          "change": "added 0214; 0163 and 0041 recorded as close negatives",
+          "reason": "0163: cancel_order requires a reason the user did not give, same as 0162. 0041: the user asked a question and requested no action. 0214: offered to read a policy it could have read"
+        },
+        {
+          "at": "2026-10-30T23:19:07+00:00",
+          "change": "added 0051",
+          "reason": "final batch: offered to look up a store policy instead of reading it, same as 0214"
+        },
+        {
+          "at": "2026-10-31T04:04:20+00:00",
+          "change": "confirmed",
+          "reason": "student approved confirming all 8 modes on 2026-10-30, after the second search round; each mode has at least 3 confirmed positives"
+        },
+        {
+          "at": "2026-10-31T17:38:49+00:00",
+          "change": "nearest mode recorded as escalation_offered_after_denial; boundary against it added",
+          "reason": "required by the handout; wording drafted by Claude for the student to review"
+        }
+      ]
+    },
+    {
+      "name": "incomplete_answer",
+      "status": "confirmed",
+      "definition": "The reply leaves out a fact from the tool result that the answer requires under RESP-7: an order-status answer without the matching shipped or delivered date, or a partial list that does not say how many records were returned.",
+      "requirement_source": "SPEC RESP-7 (added 2026-10-28; motivated by annotation ann-mvsy7l4m-ihgk on support-0149)",
+      "evaluator_type": "code",
+      "product_change": "Prompt instruction on which order facts a status answer must include.",
+      "boundary": "A request for a short answer does not excuse a missing status date (RESP-7). Extra detail the question does not need is not required. Applies only to order-status answers and partial lists: a refund, cancellation or return-eligibility reply without a date is not this mode. Filtering a list to answer the question asked (0242 shows the 2 eligible orders of 20) is not a partial list. Against missing_data_not_flagged: here the tool returned the fact and the reply left it out; there the fact is null or inconsistent in the tool result.",
+      "nearest_mode": "missing_data_not_flagged",
+      "origin_annotation_ids": [
+        "ann-mvsy7l4m-ihgk",
+        "ann-mvt1u5bz-oqxp",
+        "ann-mvt2zze6-wsj0"
+      ],
+      "created_from": [
+        "24e3231eba807203867a51424999200e",
+        "67ceab00a7f249720aac1e7e2e189901",
+        "73ece40a7f3ef897dacddd939624d7ea"
+      ],
+      "example_trace_ids": [
+        "24e3231eba807203867a51424999200e",
+        "67ceab00a7f249720aac1e7e2e189901",
+        "73ece40a7f3ef897dacddd939624d7ea",
+        "d340078718b62ee97654d94a42b3c691"
+      ],
+      "close_negative_ids": [
+        "7cfb289e8449ba84f1f3e647f30c4fe5",
+        "3db453043223ae316b8e9e5065ebd6fc",
+        "8946b0fc02f8afefd5929d6999e68244",
+        "ff7d93055b281cc8d646947a978e2836"
+      ],
+      "first_seen_batch": "initial_random",
+      "revisions": [
+        {
+          "at": "2026-10-29T03:43:30+00:00",
+          "change": "created as a candidate from batch 1 open codes (first 15 conversations)",
+          "reason": "student kept the proposed grouping"
+        },
+        {
+          "at": "2026-10-29T04:51:32Z",
+          "change": "added support-0244 (ann-mvt1u5bz-oqxp)",
+          "reason": "dimension batch: listed 5 of 20 orders as 'your recent deliveries' without saying so (0244)"
+        },
+        {
+          "at": "2026-10-29T05:16:17Z",
+          "change": "added support-0144 (ann-mvt2zze6-wsj0)",
+          "reason": "dimension batch: status without delivery date (0144)"
+        },
+        {
+          "at": "2026-10-29T05:16:17Z",
+          "change": "requirement RESP-7 added to SPEC.md; definition tied to it; short-answer requests explicitly included",
+          "reason": "student approved RESP-7 after 0144, 0149 (both asked for short answers) and 0244"
+        },
+        {
+          "at": "2026-10-30T21:48:02+00:00",
+          "change": "0224, 0060 and 0209 recorded as close negatives; RESP-7 kept narrow",
+          "reason": "the student kept RESP-7 to status answers and partial lists rather than widening it to any reply that mentions shipping or delivery"
+        },
+        {
+          "at": "2026-10-30T23:19:07+00:00",
+          "change": "0242 recorded as a close negative; boundary sharpened",
+          "reason": "the reply answers which orders can be refunded completely; filtering is not a partial list"
+        },
+        {
+          "at": "2026-10-31T04:04:20+00:00",
+          "change": "confirmed",
+          "reason": "student approved confirming all 8 modes on 2026-10-30, after the second search round; each mode has at least 3 confirmed positives"
+        },
+        {
+          "at": "2026-10-31T17:38:49+00:00",
+          "change": "nearest mode recorded as missing_data_not_flagged; boundary against it added",
+          "reason": "required by the handout; wording drafted by Claude for the student to review"
+        }
+      ]
+    },
+    {
+      "name": "cancellation_payment_not_explained",
+      "status": "confirmed",
+      "definition": "The user is the buyer (a shopper, or support acting for one), cancel_order reports success, and the reply does not say that the cancellation is at no cost and that the full payment is returned to the original payment method (citing cw-cancellations).",
+      "requirement_source": "SPEC RESP-6 (added 2026-10-28, narrowed to buyers the same day; motivated by annotation ann-mvsyf51z-4op1 on support-0055)",
+      "evaluator_type": "llm_judge",
+      "product_change": "Prompt instruction for successful cancellations: state no cost and full payment returned, cite cw-cancellations.",
+      "boundary": "Merchant-initiated cancellations are close negatives: the merchant does not need the buyer's payment explained. A reply that explains the payment but omits the citation is uncited_policy_claim.",
+      "nearest_mode": "uncited_policy_claim",
+      "origin_annotation_ids": [
+        "ann-mvsyf51z-4op1",
+        "ann-1a18638aa11-oh2w",
+        "ann-mvt3vb1h-3rt5"
+      ],
+      "created_from": [
+        "dc7e8a783728793709c4ce9073219d8e",
+        "7dcbffe60152a46fbbbd2df3a1d87297",
+        "ba4f8c0882ae52b755279f476988a6a8"
+      ],
+      "example_trace_ids": [
+        "dc7e8a783728793709c4ce9073219d8e",
+        "7dcbffe60152a46fbbbd2df3a1d87297",
+        "ba4f8c0882ae52b755279f476988a6a8"
+      ],
+      "close_negative_ids": [
+        "eb1826a96c8fbb24d2ad4c75338f7a9a",
+        "f39a83b34b959e01cfa1d70d359315ca",
+        "e620c5a2276963ece4c5ea1ac54d99a0",
+        "3db453043223ae316b8e9e5065ebd6fc"
+      ],
+      "first_seen_batch": "initial_random",
+      "revisions": [
+        {
+          "at": "2026-10-29T03:44:38Z",
+          "change": "created after the student recorded a specification gap and added RESP-6 to SPEC.md",
+          "reason": "student: a cancellation is followed by a refund; the agent never addressed the payment (0055)"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "added support-0052 via accepted suggestion sug-006",
+          "reason": "depth search: cancellation confirmed to the buyer without the payment explanation"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "added support-0053 via accepted suggestion sug-007",
+          "reason": "depth search: cancellation confirmed to the buyer without the payment explanation"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "support-0127 recorded as a close negative (rejected sug-005)",
+          "reason": "RESP-6 applies only when the user is the buyer; a merchant cancelling for stock does not need the buyer's payment explained (close negative)."
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "support-0124 recorded as a close negative (rejected sug-008)",
+          "reason": "RESP-6 applies only when the user is the buyer; a merchant cancelling for stock does not need the buyer's payment explained (close negative)."
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "RESP-6 and the definition narrowed to buyers",
+          "reason": "student chose option b after depth-search merchant cases 0124 and 0127"
+        },
+        {
+          "at": "2026-10-31T04:04:20+00:00",
+          "change": "confirmed",
+          "reason": "student approved confirming all 8 modes on 2026-10-30, after the second search round; each mode has at least 3 confirmed positives"
+        },
+        {
+          "at": "2026-10-31T16:18:00+00:00",
+          "change": "close negatives added from Part E labels: 0128, 0060",
+          "reason": "no cancellation took place: the order had shipped, so the mode cannot apply"
+        }
+      ]
+    },
+    {
+      "name": "incorrect_policy_claim",
+      "status": "confirmed",
+      "definition": "The reply states a policy or permission rule, or a consequence of one, that contradicts or adds to what the policy documents, facts.yaml, or the SPEC access matrix say (for example, that a charge cannot be disputed because the order is not refund-eligible, that refund timing depends on the bank, or that a role cannot search products).",
+      "requirement_source": "SPEC PURPOSE-1, RESP-1 (policy documents are the source); cw-disputes in this example",
+      "evaluator_type": "llm_judge",
+      "product_change": "Prompt and retrieval: retrieve the policy that governs the request (disputes, returns, payouts) before stating its rule; do not infer one policy from another.",
+      "boundary": "The stated rule is wrong or goes beyond the policy text. A correct rule stated without a citation is uncited_policy_claim. Includes verdicts that contradict a store's own return policy, or invent a rule such as 'final sale'. A correct verdict taken from refund_eligible, with no rule stated, is uncited_policy_claim even when the store's policy was never read: the mode judges what the reply says, not how the agent got there.",
+      "nearest_mode": "uncited_policy_claim",
+      "origin_annotation_ids": [
+        "ann-mvt14hh6-xzmq",
+        "ann-mvt2si7n-7h77",
+        "ann-mvt4bo5g-jnqb",
+        "ann-mvvg2ql0-29q5",
+        "ann-mvvhcc8j-5p1o",
+        "ann-1a18f1c1fe9-f1ho",
+        "ann-1a18f1c1feb-0uka",
+        "ann-mvvl3lq7-rjhf",
+        "ann-1a19015b665-mhot",
+        "ann-1a19015b668-5ir3",
+        "ann-1a19015b66a-p5dp",
+        "ann-1a19015b66d-r2j1"
+      ],
+      "created_from": [
+        "a28845d9f326f9cb8defc9b6ac025fe2",
+        "240033b9dc037fe2dc15b38727c3d9da",
+        "a61717ae2869a038c48527ed1601a112",
+        "043f4810f171110e7a19e2b3d7d283af",
+        "a5de92ea114e78e226a4823f4e659716",
+        "3b70873d23ddb5c19b468b8d531f5006",
+        "53540b4fd0c159d5f63553cdc8052653",
+        "15ce9b4358ce282a9d9d49db23089796",
+        "ac84aaeadb32f1b003f6009c74753959",
+        "10aa8bf64fcf2aaf1479dbc8b8f5284b",
+        "55a9f3fb4ddfe1691066cf51b2290bc0",
+        "1a5cc2993e4173506b9911d7a6a175ee",
+        "d4d50351d78352d97923670bee16c5e5"
+      ],
+      "example_trace_ids": [
+        "a28845d9f326f9cb8defc9b6ac025fe2",
+        "240033b9dc037fe2dc15b38727c3d9da",
+        "a61717ae2869a038c48527ed1601a112",
+        "043f4810f171110e7a19e2b3d7d283af",
+        "a5de92ea114e78e226a4823f4e659716",
+        "3b70873d23ddb5c19b468b8d531f5006",
+        "53540b4fd0c159d5f63553cdc8052653",
+        "15ce9b4358ce282a9d9d49db23089796",
+        "ac84aaeadb32f1b003f6009c74753959",
+        "10aa8bf64fcf2aaf1479dbc8b8f5284b",
+        "55a9f3fb4ddfe1691066cf51b2290bc0",
+        "1a5cc2993e4173506b9911d7a6a175ee",
+        "d4d50351d78352d97923670bee16c5e5",
+        "eb1826a96c8fbb24d2ad4c75338f7a9a"
+      ],
+      "close_negative_ids": [
+        "1bb9d4acab960a50d4b243d58c8cec22",
+        "13510c48e2f6bc1b23cf99ce4de075b9",
+        "9aabfdfdd0daaf9eb562ba95bb1b7709",
+        "9ab757e42345095d2df932b36035d1a2",
+        "002a95b214bcf0ad7533ee10ad09a8b4",
+        "4c46c3a3cbeaf095792752b77f82f07c",
+        "43461341e77593dbf3d58a59be6897e0",
+        "9d61b6a59a5f3511814ce4c02306cc19",
+        "847491cf85b6152df55ef5e023a97336",
+        "3b54db69549daddd219676c18359f75a",
+        "8946b0fc02f8afefd5929d6999e68244",
+        "ccf97ab34d946fbaefc352cb723e5e5f"
+      ],
+      "first_seen_batch": "cluster",
+      "revisions": [
+        {
+          "at": "2026-10-29T04:20:20Z",
+          "change": "created as a candidate",
+          "reason": "student chose option b for 0097: the dispute was wrongly tied to refund eligibility; the fix (correct content) differs from adding a citation"
+        },
+        {
+          "at": "2026-10-29T05:16:17Z",
+          "change": "added support-0173 (ann-mvt2si7n-7h77)",
+          "reason": "dimension batch: sent a dispute to the bank (0173)"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "added support-0062 via accepted suggestion sug-013",
+          "reason": "depth search: refund timing tied to the bank, not in cw-refunds"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "support-0172 recorded as a close negative (rejected sug-014)",
+          "reason": "There is no mention of bank or credit card provider in the agent's response"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "support-0166 recorded as a close negative (rejected sug-015)",
+          "reason": "There is no mention of bank or credit card provider in the agent's response"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "definition widened from 'contradicts' to 'contradicts or adds to' the policy",
+          "reason": "0062: cw-refunds says 5 to 10 business days; the agent added that timing depends on the bank, which no policy says",
+          "previous_definition": "The reply states a policy rule or a consequence of a rule that contradicts the policy documents or facts.yaml (for example, that a charge cannot be disputed because the order is not refund-eligible)."
+        },
+        {
+          "at": "2026-10-30T21:48:02+00:00",
+          "change": "added 0211 and 0214; separate store-policy mode rejected",
+          "reason": "0211 invented 'final sale'; 0214 said 'past the return window' inside Northwind's 45-day window. The student filed the store-policy pattern here rather than adding a ninth mode"
+        },
+        {
+          "at": "2026-10-30T23:19:07+00:00",
+          "change": "added 0217, 0040 and 0084; definition widened to include the SPEC access matrix",
+          "reason": "0084 told a merchant it could not look up other sellers' products, which AUTH-1 allows; 0217 promised a full refund against a store's restocking fee; 0040 added 'unopened and unused' to cw-returns",
+          "previous_definition": "The reply states a policy rule, or a consequence of one, that contradicts or adds to what the policy documents and facts.yaml say (for example, that a charge cannot be disputed because the order is not refund-eligible, or that refund timing depends on the bank)."
+        },
+        {
+          "at": "2026-10-31T03:51:44+00:00",
+          "change": "boundary narrowed: verdicts that 'ignore' a store's policy removed, only verdicts that contradict it count; second search round added 0206, 0207, 0216, 0041, 0070 and close negatives 0208, 0212, 0213, 0215, 0050, 0051, 0137, 0148, 0209, 0236",
+          "reason": "second search round: 0208, 0212 and 0213 give the same correct verdict from the flag and state no rule, yet were first decided differently; 'ignore' described the agent's process, not its reply. Rechecks also found 0070 (24 to 48 hours against cw-escalations), first reviewed as clean.",
+          "previous_boundary": "The stated rule is wrong or goes beyond the policy text. A correct rule stated without a citation is uncited_policy_claim. Includes verdicts that ignore or contradict a store's own return policy, or invent a rule such as 'final sale'."
+        },
+        {
+          "at": "2026-10-31T04:04:20+00:00",
+          "change": "confirmed",
+          "reason": "student approved confirming all 8 modes on 2026-10-30, after the second search round; each mode has at least 3 confirmed positives"
+        }
+      ]
+    },
+    {
+      "name": "escalation_offered_after_denial",
+      "status": "confirmed",
+      "definition": "After a tool returns permission_denied, the reply offers escalation (or another route) as a way to obtain the data the caller is not authorized to see.",
+      "requirement_source": "SPEC AUTH-1, RESP-4",
+      "evaluator_type": "llm_judge",
+      "product_change": "Prompt instruction: after permission_denied, explain the refusal without revealing details and do not offer escalation to get the data.",
+      "boundary": "Opposite of asks_instead_of_acting: there the agent should act and asks; here it offers an action that should not be offered. Escalating a genuine dispute or account change is not this mode.",
+      "nearest_mode": "asks_instead_of_acting",
+      "origin_annotation_ids": [
+        "ann-mvt1026n-mo5t",
+        "ann-mvt2nbca-7vju",
+        "ann-mvt3kcoc-kkrk",
+        "ann-mvt3nsam-8xzu",
+        "ann-mvt3q4f2-uakm"
+      ],
+      "created_from": [
+        "69b27787c91154efe87062f762ab3669",
+        "f85691c073cb43a5e66efdb1b838d9f0",
+        "851f99e933bbed21c7635db6890c2855",
+        "7d7b29ae6fed7f897cafb6d2723622e9",
+        "49bfbb23a48880bf31db68205dbc40f3"
+      ],
+      "example_trace_ids": [
+        "69b27787c91154efe87062f762ab3669",
+        "f85691c073cb43a5e66efdb1b838d9f0",
+        "851f99e933bbed21c7635db6890c2855",
+        "7d7b29ae6fed7f897cafb6d2723622e9",
+        "49bfbb23a48880bf31db68205dbc40f3"
+      ],
+      "close_negative_ids": [
+        "e8854c6d1cb4d6543cdb08208cc55d77"
+      ],
+      "first_seen_batch": "cluster",
+      "revisions": [
+        {
+          "at": "2026-10-29T04:20:20Z",
+          "change": "created as a candidate",
+          "reason": "student agreed (0232): escalation would not give a merchant another store's order and suggests a route around AUTH-1"
+        },
+        {
+          "at": "2026-10-29T05:16:17Z",
+          "change": "added support-0231 (ann-mvt2nbca-7vju)",
+          "reason": "dimension batch: offered escalation after permission_denied (0231)"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "added support-0228 via accepted suggestion sug-001",
+          "reason": "depth search: escalation offered or made after permission_denied"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "added support-0229 via accepted suggestion sug-003",
+          "reason": "depth search: escalation offered or made after permission_denied"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "added support-0226 via accepted suggestion sug-004",
+          "reason": "depth search: escalation offered or made after permission_denied"
+        },
+        {
+          "at": "2026-10-29T05:53:36Z",
+          "change": "support-0227 recorded as a close negative (rejected sug-002)",
+          "reason": "No escalation offered: the agent declined and suggested asking the relative who placed the order (close negative)."
+        },
+        {
+          "at": "2026-10-31T04:04:20+00:00",
+          "change": "confirmed",
+          "reason": "student approved confirming all 8 modes on 2026-10-30, after the second search round; each mode has at least 3 confirmed positives"
+        }
+      ]
+    },
+    {
+      "name": "malformed_tool_argument",
+      "status": "confirmed",
+      "definition": "The agent calls a tool with an argument of the wrong kind or format (for example a store ID where search_products expects a store name, or a store name where find_order expects a product description), and the tool rejects it or returns the wrong records.",
+      "requirement_source": "SPEC section 4 (TOOL-3 store, TOOL-6 product description); RESP-5 for exposing the internal error",
+      "evaluator_type": "code",
+      "product_change": "Tool description and schema: state that store takes a store name; optionally accept a store ID.",
+      "boundary": "The argument is malformed. A well-formed call for the wrong record (wrong order number) is a different failure. The mode is present when the tool rejects the argument, even if the agent recovers afterwards. Against asks_instead_of_acting: here the agent calls the tool with a wrong argument; there it does not call the tool.",
+      "nearest_mode": "asks_instead_of_acting",
+      "origin_annotation_ids": [
+        "ann-mvt2me6k-9w8l",
+        "ann-1a18ec8bc11-4hwo",
+        "ann-1a18ec8bc14-4rfe"
+      ],
+      "created_from": [
+        "ae5b61f992a4aba7b9fa74c5d1712f93",
+        "97f413d26007795fb661749a5e385492",
+        "a06fc875595110312c2d6a283f402076"
+      ],
+      "example_trace_ids": [
+        "ae5b61f992a4aba7b9fa74c5d1712f93",
+        "97f413d26007795fb661749a5e385492",
+        "a06fc875595110312c2d6a283f402076",
+        "df2df5c18e3dc52fb9257dcd3d49edd0"
+      ],
+      "close_negative_ids": [
+        "be823a63f71efcc1b5ee7366fb06b3f1",
+        "81e40c77a295b8f99cfac002d01f9dac",
+        "feb545d0db0218bcf7340b4b3902566c"
+      ],
+      "first_seen_batch": "dimension",
+      "revisions": [
+        {
+          "at": "2026-10-29T05:16:17Z",
+          "change": "created as a candidate",
+          "reason": "student chose option b for 0085"
+        },
+        {
+          "at": "2026-10-30T21:48:02+00:00",
+          "change": "added 0193 and 0199; recovery does not remove the failure",
+          "reason": "all three failed store searches in the 250 conversations (0085, 0193, 0199) pass a merchant's store ID as the store name"
+        },
+        {
+          "at": "2026-10-31T03:51:44+00:00",
+          "change": "0191 and 0194 recorded as close negatives",
+          "reason": "second search round: both pass a store name to search_products and the search succeeds"
+        },
+        {
+          "at": "2026-10-31T04:04:20+00:00",
+          "change": "confirmed",
+          "reason": "student approved confirming all 8 modes on 2026-10-30, after the second search round; each mode has at least 3 confirmed positives"
+        },
+        {
+          "at": "2026-10-31T17:36:43+00:00",
+          "change": "close negatives added from Part E labels: 0196",
+          "reason": "passes a store name to search_products and the search succeeds"
+        },
+        {
+          "at": "2026-10-31T17:36:43+00:00",
+          "change": "0118 added; example of a store name passed to find_order added to the definition",
+          "reason": "Part E: a merchant asked for recent orders, find_order received the store name and returned nothing, and the reply said there were no orders",
+          "previous_definition": "The agent calls a tool with an argument of the wrong kind or format (for example a store ID where the tool expects a store name), and the tool rejects it or returns the wrong records."
+        },
+        {
+          "at": "2026-10-31T17:38:49+00:00",
+          "change": "nearest mode recorded as asks_instead_of_acting; boundary against it added",
+          "reason": "required by the handout; wording drafted by Claude for the student to review"
+        }
+      ]
+    }
+  ],
+  "unadopted_modes": [
+    {
+      "name": "unsupported_record_match",
+      "definition": "The reply attributes a product or request to a specific order without evidence in the tool result that the order contains it.",
+      "origin_annotation_ids": [
+        "ann-1a18f1c1fe6-89h9"
+      ],
+      "conversations": [
+        "506b862fbca1bdefc8d5ecf8c60a5a31"
+      ],
+      "first_seen_batch": "final_random",
+      "decision": "Seen in the final batch and not adopted: one confirmed positive, none clear among the 13 conversations using list_my_orders without find_order, and the taxonomy is at the 8-mode limit.",
+      "decided_at": "2026-10-30T23:19:07+00:00",
+      "decided_by": "human"
+    }
+  ]
+}

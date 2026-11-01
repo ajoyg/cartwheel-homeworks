@@ -1,0 +1,816 @@
+{
+  "items": [
+    {
+      "conversation_id": "828cf4bbe8ba2c12408a165956f2eb24",
+      "scenario_id": "support-0249",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "563aad94b78da5f07920a55dce6517bd",
+      "scenario_id": "support-0159",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "82ed69e244ca116435debdfd55208c62",
+      "scenario_id": "support-0143",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "3dbc69510b99c359b26676383d1a82ee",
+      "scenario_id": "support-0177",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "fddbce4ef3085aca2a230d897f08705e",
+      "scenario_id": "support-0186",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "2d4e13a7d1328e797540cbec37382805",
+      "scenario_id": "support-0150",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "97a428cb3db27ca8501963decbd09725",
+      "scenario_id": "support-0240",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "b6a0084946eafaf34380fc1d76abb4a5",
+      "scenario_id": "support-0012",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "24e3231eba807203867a51424999200e",
+      "scenario_id": "support-0149",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "585ee55e175bbfc89ce4a8f67d3b0a4c",
+      "scenario_id": "support-0176",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "dc7e8a783728793709c4ce9073219d8e",
+      "scenario_id": "support-0055",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "254389fe6da1da1b34ad567bfecb92d8",
+      "scenario_id": "support-0010",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "e620c5a2276963ece4c5ea1ac54d99a0",
+      "scenario_id": "support-0128",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "d7baff7027d7a1bfacba0956dfd38797",
+      "scenario_id": "support-0139",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "e9cb8f8886f92082edd31584df5d609f",
+      "scenario_id": "support-0037",
+      "batch": "initial_random",
+      "reason": "uniform random draw (seed 20261028)",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "a4380e59a66c5080ba429e7490d8f4b8",
+      "scenario_id": "support-0161",
+      "batch": "cluster",
+      "reason": "cluster 0 (71 conversations), rank 1 nearest the centre; turn_count=1, tool_call_count=1, distinct_tools=1, has_retrieval=0, words=98",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "f1cd7056a7c5a6660277ec8348ea2209",
+      "scenario_id": "support-0086",
+      "batch": "cluster",
+      "reason": "cluster 3 (49 conversations), rank 1 nearest the centre; turn_count=1, tool_call_count=1, distinct_tools=1, has_retrieval=0, words=156",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "2ae69d165c6d441e8495fe09699bf974",
+      "scenario_id": "support-0026",
+      "batch": "cluster",
+      "reason": "cluster 6 (29 conversations), rank 1 nearest the centre; turn_count=1, tool_call_count=2, distinct_tools=2, has_retrieval=0, words=170",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "ea03f14dc0730a64bc7b0c2761158961",
+      "scenario_id": "support-0030",
+      "batch": "cluster",
+      "reason": "cluster 5 (19 conversations), rank 1 nearest the centre; turn_count=2, tool_call_count=2, distinct_tools=2, has_retrieval=0, words=315",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "e52b3fa26e32208c692b25403bdfe86e",
+      "scenario_id": "support-0141",
+      "batch": "cluster",
+      "reason": "cluster 1 (19 conversations), rank 1 nearest the centre; turn_count=1, tool_call_count=1, distinct_tools=1, has_retrieval=1, words=277",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "d683231546729f315c4163bcf46b3173",
+      "scenario_id": "support-0248",
+      "batch": "cluster",
+      "reason": "cluster 7 (18 conversations), rank 1 nearest the centre; turn_count=2, tool_call_count=1, distinct_tools=1, has_retrieval=0, words=180",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "d4d50351d78352d97923670bee16c5e5",
+      "scenario_id": "support-0070",
+      "batch": "cluster",
+      "reason": "cluster 2 (17 conversations), rank 1 nearest the centre; turn_count=1, tool_call_count=0, distinct_tools=0, has_retrieval=0, words=65",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "d340078718b62ee97654d94a42b3c691",
+      "scenario_id": "support-0067",
+      "batch": "cluster",
+      "reason": "cluster 4 (13 conversations), rank 1 nearest the centre; turn_count=1, tool_call_count=1, distinct_tools=1, has_retrieval=0, words=507",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "69b27787c91154efe87062f762ab3669",
+      "scenario_id": "support-0232",
+      "batch": "cluster",
+      "reason": "cluster 0 (71 conversations), rank 2 nearest the centre; turn_count=1, tool_call_count=1, distinct_tools=1, has_retrieval=0, words=98",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "4efa764bdc00f2960b86d08f1dcf2135",
+      "scenario_id": "support-0014",
+      "batch": "cluster",
+      "reason": "cluster 3 (49 conversations), rank 2 nearest the centre; turn_count=1, tool_call_count=1, distinct_tools=1, has_retrieval=0, words=158",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "52772bbec6b2427154b24316aed91d0d",
+      "scenario_id": "support-0024",
+      "batch": "cluster",
+      "reason": "cluster 6 (29 conversations), rank 2 nearest the centre; turn_count=1, tool_call_count=2, distinct_tools=2, has_retrieval=0, words=171",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "a28845d9f326f9cb8defc9b6ac025fe2",
+      "scenario_id": "support-0097",
+      "batch": "cluster",
+      "reason": "cluster 5 (19 conversations), rank 2 nearest the centre; turn_count=2, tool_call_count=2, distinct_tools=2, has_retrieval=0, words=280",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "e52047e6434096ddff20ee9032f3e459",
+      "scenario_id": "support-0069",
+      "batch": "cluster",
+      "reason": "cluster 1 (19 conversations), rank 2 nearest the centre; turn_count=1, tool_call_count=1, distinct_tools=1, has_retrieval=1, words=283",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "4781a86dcdcefe3be01035dd2bb37066",
+      "scenario_id": "support-0181",
+      "batch": "cluster",
+      "reason": "cluster 7 (18 conversations), rank 2 nearest the centre; turn_count=2, tool_call_count=1, distinct_tools=1, has_retrieval=0, words=181",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "e8b21e6c46daf5509b7cc0f446383d08",
+      "scenario_id": "support-0073",
+      "batch": "cluster",
+      "reason": "cluster 2 (17 conversations), rank 2 nearest the centre; turn_count=1, tool_call_count=0, distinct_tools=0, has_retrieval=0, words=69",
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    {
+      "conversation_id": "67ceab00a7f249720aac1e7e2e189901",
+      "scenario_id": "support-0244",
+      "batch": "dimension",
+      "reason": "user role = shopper; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "f5bb4ef553f90a11963bb74718882555",
+      "scenario_id": "support-0065",
+      "batch": "dimension",
+      "reason": "user role = shopper; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "93a6ce11d82db507e8586bb646837404",
+      "scenario_id": "support-0250",
+      "batch": "dimension",
+      "reason": "user role = shopper; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "172448abed75a97f9668e0ddc7760ff4",
+      "scenario_id": "support-0103",
+      "batch": "dimension",
+      "reason": "user role = shopper; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "774d4d17162141ea707170e3e12a8d2d",
+      "scenario_id": "support-0205",
+      "batch": "dimension",
+      "reason": "user role = shopper; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "6ba92c528eda9477fddd413ddff1be1d",
+      "scenario_id": "support-0011",
+      "batch": "dimension",
+      "reason": "user role = shopper; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "ccf97ab34d946fbaefc352cb723e5e5f",
+      "scenario_id": "support-0236",
+      "batch": "dimension",
+      "reason": "user role = shopper; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "c5045833d1db13809a8abbfd7a7c143c",
+      "scenario_id": "support-0080",
+      "batch": "dimension",
+      "reason": "user role = shopper; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "34fc5c9aaef14aeb2706d590fb193657",
+      "scenario_id": "support-0082",
+      "batch": "dimension",
+      "reason": "user role = shopper; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "520526752e257303589faa33052c0cfe",
+      "scenario_id": "support-0039",
+      "batch": "dimension",
+      "reason": "user role = shopper; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "f147f0fd6ce4d06180771c2988fd2fbf",
+      "scenario_id": "support-0130",
+      "batch": "dimension",
+      "reason": "user role = merchant; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "d7a5f1c81b08f94f83265af7cc7b2213",
+      "scenario_id": "support-0126",
+      "batch": "dimension",
+      "reason": "user role = merchant; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "816ef6ec2b08f15ecf6717302128bf48",
+      "scenario_id": "support-0135",
+      "batch": "dimension",
+      "reason": "user role = merchant; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "b1b170d7d44eec5a9eea2dbb98e329dc",
+      "scenario_id": "support-0117",
+      "batch": "dimension",
+      "reason": "user role = merchant; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "a06fc875595110312c2d6a283f402076",
+      "scenario_id": "support-0199",
+      "batch": "dimension",
+      "reason": "user role = merchant; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "df2df5c18e3dc52fb9257dcd3d49edd0",
+      "scenario_id": "support-0118",
+      "batch": "dimension",
+      "reason": "user role = merchant; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "07d7adf1a8a0808ba00e4d029bdd106e",
+      "scenario_id": "support-0113",
+      "batch": "dimension",
+      "reason": "user role = merchant; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "ae5b61f992a4aba7b9fa74c5d1712f93",
+      "scenario_id": "support-0085",
+      "batch": "dimension",
+      "reason": "user role = merchant; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "f85691c073cb43a5e66efdb1b838d9f0",
+      "scenario_id": "support-0231",
+      "batch": "dimension",
+      "reason": "user role = merchant; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "52e360e2ba45985bdc3bc08b81f5abed",
+      "scenario_id": "support-0112",
+      "batch": "dimension",
+      "reason": "user role = merchant; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "5b64da4739b7bbf487722a650b38abb3",
+      "scenario_id": "support-0169",
+      "batch": "dimension",
+      "reason": "user role = support; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "bb434dc3e3bb06131eacd5f9f6555286",
+      "scenario_id": "support-0175",
+      "batch": "dimension",
+      "reason": "user role = support; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "240033b9dc037fe2dc15b38727c3d9da",
+      "scenario_id": "support-0173",
+      "batch": "dimension",
+      "reason": "user role = support; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "2993fb23598812ca1705552ebcd25cc4",
+      "scenario_id": "support-0167",
+      "batch": "dimension",
+      "reason": "user role = support; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "3b54db69549daddd219676c18359f75a",
+      "scenario_id": "support-0148",
+      "batch": "dimension",
+      "reason": "user role = support; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "73ece40a7f3ef897dacddd939624d7ea",
+      "scenario_id": "support-0144",
+      "batch": "dimension",
+      "reason": "user role = support; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "f7d7a47dedc285dcaa4af055923e4b46",
+      "scenario_id": "support-0162",
+      "batch": "dimension",
+      "reason": "user role = support; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "68e907d7b3be54ac3161778ced4f9c36",
+      "scenario_id": "support-0155",
+      "batch": "dimension",
+      "reason": "user role = support; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "4187edb18a9bda80a9a1b67c70b78a73",
+      "scenario_id": "support-0157",
+      "batch": "dimension",
+      "reason": "user role = support; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "df049e325a508079894e982a09802bb5",
+      "scenario_id": "support-0171",
+      "batch": "dimension",
+      "reason": "user role = support; uniform random within the role (seed 20261030)",
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    {
+      "conversation_id": "851f99e933bbed21c7635db6890c2855",
+      "scenario_id": "support-0228",
+      "batch": "depth",
+      "reason": "depth search for escalation_offered_after_denial: get_order returned permission_denied; check whether the reply offers escalation or another route to the data",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "e8854c6d1cb4d6543cdb08208cc55d77",
+      "scenario_id": "support-0227",
+      "batch": "depth",
+      "reason": "depth search for escalation_offered_after_denial: get_order returned permission_denied; check whether the reply offers escalation or another route to the data",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "7d7b29ae6fed7f897cafb6d2723622e9",
+      "scenario_id": "support-0229",
+      "batch": "depth",
+      "reason": "depth search for escalation_offered_after_denial: get_order returned permission_denied; check whether the reply offers escalation or another route to the data",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "49bfbb23a48880bf31db68205dbc40f3",
+      "scenario_id": "support-0226",
+      "batch": "depth",
+      "reason": "depth search for escalation_offered_after_denial: get_order returned permission_denied; check whether the reply offers escalation or another route to the data",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "eb1826a96c8fbb24d2ad4c75338f7a9a",
+      "scenario_id": "support-0127",
+      "batch": "depth",
+      "reason": "depth search for cancellation_payment_not_explained: cancel_order succeeded; check whether the reply says the cancellation is at no cost and the payment is returned (RESP-6)",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "7dcbffe60152a46fbbbd2df3a1d87297",
+      "scenario_id": "support-0052",
+      "batch": "depth",
+      "reason": "depth search for cancellation_payment_not_explained: cancel_order succeeded; check whether the reply says the cancellation is at no cost and the payment is returned (RESP-6)",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "ba4f8c0882ae52b755279f476988a6a8",
+      "scenario_id": "support-0053",
+      "batch": "depth",
+      "reason": "depth search for cancellation_payment_not_explained: cancel_order succeeded; check whether the reply says the cancellation is at no cost and the payment is returned (RESP-6)",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "f39a83b34b959e01cfa1d70d359315ca",
+      "scenario_id": "support-0124",
+      "batch": "depth",
+      "reason": "depth search for cancellation_payment_not_explained: cancel_order succeeded; check whether the reply says the cancellation is at no cost and the payment is returned (RESP-6)",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "feb545d0db0218bcf7340b4b3902566c",
+      "scenario_id": "support-0196",
+      "batch": "depth",
+      "reason": "depth search for missing_data_not_flagged: search_products returned a damaged record (missing or reversed dates, negative price or empty title); check whether the reply flags it (RESP-3)",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "1ab42d63fb1837a5bd1d93481a54ca52",
+      "scenario_id": "support-0182",
+      "batch": "depth",
+      "reason": "depth search for missing_data_not_flagged: get_order returned a damaged record (missing or reversed dates, negative price or empty title); check whether the reply flags it (RESP-3)",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "2b713f08c560e610c8b52f5ffbccb036",
+      "scenario_id": "support-0200",
+      "batch": "depth",
+      "reason": "depth search for missing_data_not_flagged: search_products returned a damaged record (missing or reversed dates, negative price or empty title); check whether the reply flags it (RESP-3)",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "2ad55eee58c04b0dee3a0ad5a9215f6e",
+      "scenario_id": "support-0180",
+      "batch": "depth",
+      "reason": "depth search for missing_data_not_flagged: get_order returned a damaged record (missing or reversed dates, negative price or empty title); check whether the reply flags it (RESP-3)",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "a61717ae2869a038c48527ed1601a112",
+      "scenario_id": "support-0062",
+      "batch": "depth",
+      "reason": "depth search for incorrect_policy_claim: reply mentions a bank, card provider, chargeback or dispute; check the stated rule against cw-disputes",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "1bb9d4acab960a50d4b243d58c8cec22",
+      "scenario_id": "support-0172",
+      "batch": "depth",
+      "reason": "depth search for incorrect_policy_claim: reply mentions a bank, card provider, chargeback or dispute; check the stated rule against cw-disputes",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "13510c48e2f6bc1b23cf99ce4de075b9",
+      "scenario_id": "support-0166",
+      "batch": "depth",
+      "reason": "depth search for incorrect_policy_claim: reply mentions a bank, card provider, chargeback or dispute; check the stated rule against cw-disputes",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "43461341e77593dbf3d58a59be6897e0",
+      "scenario_id": "support-0050",
+      "batch": "depth",
+      "reason": "depth search for uncited_policy_claim: reply makes an eligibility, window, policy or payout statement and no reply cites a policy identifier",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "e8e657e835a4a7598729568dfcb01359",
+      "scenario_id": "support-0017",
+      "batch": "depth",
+      "reason": "depth search for uncited_policy_claim: reply makes an eligibility, window, policy or payout statement and no reply cites a policy identifier",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "043f4810f171110e7a19e2b3d7d283af",
+      "scenario_id": "support-0211",
+      "batch": "depth",
+      "reason": "depth search for uncited_policy_claim: reply makes an eligibility, window, policy or payout statement and no reply cites a policy identifier",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "7cfb289e8449ba84f1f3e647f30c4fe5",
+      "scenario_id": "support-0224",
+      "batch": "depth",
+      "reason": "depth search for incomplete_answer: get_order or list_my_orders was called and no reply states a date; check RESP-7",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "3db453043223ae316b8e9e5065ebd6fc",
+      "scenario_id": "support-0060",
+      "batch": "depth",
+      "reason": "depth search for incomplete_answer: get_order or list_my_orders was called and no reply states a date; check RESP-7",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "8946b0fc02f8afefd5929d6999e68244",
+      "scenario_id": "support-0209",
+      "batch": "depth",
+      "reason": "depth search for incomplete_answer: get_order or list_my_orders was called and no reply states a date; check RESP-7",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "97f413d26007795fb661749a5e385492",
+      "scenario_id": "support-0193",
+      "batch": "depth",
+      "reason": "depth search for malformed_tool_argument: search_products returned not_found; check whether an argument was malformed",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "a5de92ea114e78e226a4823f4e659716",
+      "scenario_id": "support-0214",
+      "batch": "depth",
+      "reason": "depth search for asks_instead_of_acting: the final reply ends with a question; check whether it asks for something the request already gave or the tool does not need (possible close negative)",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "3805a49e02a130594324057b277c776a",
+      "scenario_id": "support-0163",
+      "batch": "depth",
+      "reason": "depth search for asks_instead_of_acting: the final reply ends with a question; check whether it asks for something the request already gave or the tool does not need (possible close negative)",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "1a5cc2993e4173506b9911d7a6a175ee",
+      "scenario_id": "support-0041",
+      "batch": "depth",
+      "reason": "depth search for asks_instead_of_acting: the final reply ends with a question; check whether it asks for something the request already gave or the tool does not need (possible close negative)",
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    {
+      "conversation_id": "55ef739a3a92aa4231eb60eb67030fbc",
+      "scenario_id": "support-0076",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "3299e63ed93b0c67353f1d1052024625",
+      "scenario_id": "support-0029",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "53540b4fd0c159d5f63553cdc8052653",
+      "scenario_id": "support-0040",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "3b70873d23ddb5c19b468b8d531f5006",
+      "scenario_id": "support-0217",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "9d61b6a59a5f3511814ce4c02306cc19",
+      "scenario_id": "support-0051",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "506b862fbca1bdefc8d5ecf8c60a5a31",
+      "scenario_id": "support-0183",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "6916146aff8b5f360fdf70aade21bdd8",
+      "scenario_id": "support-0018",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "ff7d93055b281cc8d646947a978e2836",
+      "scenario_id": "support-0242",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "e6b88850d19f950738ecfd1892b27c85",
+      "scenario_id": "support-0146",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "07900c4240cb567ba411ca282f2aed74",
+      "scenario_id": "support-0132",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "60d892ebccf6cb4424369e8abead0885",
+      "scenario_id": "support-0001",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "15ce9b4358ce282a9d9d49db23089796",
+      "scenario_id": "support-0084",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "88225486ae33e213eeedb5e058b86d4e",
+      "scenario_id": "support-0094",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "847491cf85b6152df55ef5e023a97336",
+      "scenario_id": "support-0137",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "88bc74f0e4e0580374952dd24d067aea",
+      "scenario_id": "support-0223",
+      "batch": "final_random",
+      "reason": "uniform random draw from unreviewed conversations (seed 20261032)",
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    {
+      "conversation_id": "ac84aaeadb32f1b003f6009c74753959",
+      "scenario_id": "support-0206",
+      "batch": "search_round2",
+      "reason": "second search for incorrect_policy_claim: order from Juniper Home Goods, which has its own policy, and no policy was looked up; check the reply against the store's policy",
+      "added_at": "2026-10-31T00:00:15+00:00"
+    },
+    {
+      "conversation_id": "10aa8bf64fcf2aaf1479dbc8b8f5284b",
+      "scenario_id": "support-0207",
+      "batch": "search_round2",
+      "reason": "second search for incorrect_policy_claim: order from Juniper Home Goods, which has its own policy, and no policy was looked up; check the reply against the store's policy",
+      "added_at": "2026-10-31T00:00:15+00:00"
+    },
+    {
+      "conversation_id": "9aabfdfdd0daaf9eb562ba95bb1b7709",
+      "scenario_id": "support-0208",
+      "batch": "search_round2",
+      "reason": "second search for incorrect_policy_claim: order from Juniper Home Goods, which has its own policy, and no policy was looked up; check the reply against the store's policy",
+      "added_at": "2026-10-31T00:00:15+00:00"
+    },
+    {
+      "conversation_id": "9ab757e42345095d2df932b36035d1a2",
+      "scenario_id": "support-0212",
+      "batch": "search_round2",
+      "reason": "second search for incorrect_policy_claim: order from Meridian Cycles, which has its own policy, and no policy was looked up; check the reply against the store's policy",
+      "added_at": "2026-10-31T00:00:15+00:00"
+    },
+    {
+      "conversation_id": "002a95b214bcf0ad7533ee10ad09a8b4",
+      "scenario_id": "support-0213",
+      "batch": "search_round2",
+      "reason": "second search for incorrect_policy_claim: order from Meridian Cycles, which has its own policy, and no policy was looked up; check the reply against the store's policy",
+      "added_at": "2026-10-31T00:00:15+00:00"
+    },
+    {
+      "conversation_id": "4c46c3a3cbeaf095792752b77f82f07c",
+      "scenario_id": "support-0215",
+      "batch": "search_round2",
+      "reason": "second search for incorrect_policy_claim: order from Northwind Books, which has its own policy, and no policy was looked up; check the reply against the store's policy",
+      "added_at": "2026-10-31T00:00:15+00:00"
+    },
+    {
+      "conversation_id": "55a9f3fb4ddfe1691066cf51b2290bc0",
+      "scenario_id": "support-0216",
+      "batch": "search_round2",
+      "reason": "second search for incorrect_policy_claim: order from Cascade Audio, which has its own policy, and no policy was looked up; check the reply against the store's policy",
+      "added_at": "2026-10-31T00:00:15+00:00"
+    },
+    {
+      "conversation_id": "be823a63f71efcc1b5ee7366fb06b3f1",
+      "scenario_id": "support-0191",
+      "batch": "search_round2",
+      "reason": "close negative search for malformed_tool_argument: search_products was given a store name and succeeded; possible close negative",
+      "added_at": "2026-10-31T00:00:15+00:00"
+    },
+    {
+      "conversation_id": "81e40c77a295b8f99cfac002d01f9dac",
+      "scenario_id": "support-0194",
+      "batch": "search_round2",
+      "reason": "close negative search for malformed_tool_argument: search_products was given a store name and succeeded; possible close negative",
+      "added_at": "2026-10-31T00:00:15+00:00"
+    }
+  ],
+  "batches": {
+    "initial_random": {
+      "method": "uniform random sample of all conversations",
+      "seed": 20261028,
+      "size": 15,
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    "cluster": {
+      "method": "k-means (8 clusters, course helper) on standardized turn_count, tool_call_count, distinct_tools, has_retrieval, words; nearest-to-centre members, spread across clusters; random picks excluded",
+      "seed": 7,
+      "size": 15,
+      "added_at": "2026-10-29T02:16:20+00:00"
+    },
+    "dimension": {
+      "method": "dimension chosen before review: user role; 10 conversations per role, uniform random within each role",
+      "dimension": "role",
+      "seed": 20261030,
+      "size": 30,
+      "added_at": "2026-10-29T04:20:32+00:00"
+    },
+    "depth": {
+      "method": "depth searches: one deterministic retrieval signal per candidate mode, uniform random among hits; each pick is also a pending suggestion for the human to accept or reject",
+      "plan": {
+        "escalation_offered_after_denial": 4,
+        "cancellation_payment_not_explained": 4,
+        "missing_data_not_flagged": 4,
+        "incorrect_policy_claim": 3,
+        "uncited_policy_claim": 3,
+        "incomplete_answer": 3,
+        "malformed_tool_argument": 1,
+        "asks_instead_of_acting": 3
+      },
+      "seed": 20261031,
+      "size": 25,
+      "added_at": "2026-10-29T05:18:57+00:00"
+    },
+    "final_random": {
+      "method": "uniform random sample of the conversations not yet reviewed, drawn after the taxonomy draft",
+      "seed": 20261032,
+      "size": 15,
+      "added_at": "2026-10-30T21:48:38+00:00"
+    },
+    "search_round2": {
+      "method": "second search after the incorrect_policy_claim definition was widened: orders from stores with their own policy where no policy was looked up, plus two store-name searches as malformed_tool_argument close negatives. Extends the depth searches and is kept separate from the four required batches.",
+      "size": 9,
+      "recheck_suggestions": 10,
+      "added_at": "2026-10-31T00:00:15+00:00"
+    }
+  }
+}
