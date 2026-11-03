@@ -12,4 +12,4 @@ Session grouping. In the standard Langfuse view I could not get from a conversat
 
 ## Remaining limitation
 
-PENDING: student to write this from their own use of the interface.
+There is no way in the review interface to link notes and labels, this is especially important when the assigned labels differ from the notes when I am doing a second pass.
