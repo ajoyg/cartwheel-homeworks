@@ -92,6 +92,16 @@ mark.sugg { background: transparent; border-bottom: 2px dashed var(--sugg-edge);
 .popover .hint { font-size: 11px; color: var(--muted); }
 .labels-panel { margin-top: 24px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
 .labels-panel h3 { margin: 0 0 6px; font-size: 14px; }
+.judge-panel { margin-top: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+.judge-panel h3 { margin: 0 0 6px; font-size: 14px; }
+.verdict { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; border: 1px solid var(--line); }
+.verdict.Pass { color: #2f7d4a; border-color: #2f7d4a; }
+.verdict.Fail { color: #b3261e; border-color: #b3261e; }
+.jtable { width: 100%; border-collapse: collapse; font-size: 13px; }
+.jtable th, .jtable td { text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); padding: 6px; }
+.jtable tr.disagree { background: rgba(179, 38, 30, 0.06); }
+.jtable tr[data-id] { cursor: pointer; }
+.jcrit { white-space: pre-wrap; }
 .lrow { display: grid; grid-template-columns: 280px 180px minmax(0, 1fr); gap: 8px; align-items: center; padding: 4px 0; border-top: 1px solid #f0eee9; }
 .lrow .name { font-family: var(--mono); font-size: 12.5px; }
 .lrow .cand { font-size: 10.5px; color: var(--muted); }
@@ -147,6 +157,7 @@ table.stats th:first-child, table.stats td:first-child { text-align: left; }
     <button data-view="suggestions">Suggestions<span class="count" id="c-suggestions"></span></button>
     <button data-view="labeling">Labeling<span class="count" id="c-labeling"></span></button>
     <button data-view="progress">Progress</button>
+    <button data-view="judge">Judge<span class="count" id="c-judge"></span></button>
   </nav>
   <div id="status">loading…</div>
 </header>
@@ -177,11 +188,13 @@ table.stats th:first-child, table.stats td:first-child { text-align: left; }
 <div id="v-suggestions" class="view"><div class="page" id="suggestions"></div></div>
 <div id="v-labeling" class="view"><div class="page" id="labeling"></div></div>
 <div id="v-progress" class="view"><div class="page" id="progress"></div></div>
+<div id="v-judge" class="view"><div class="page" id="judge"></div></div>
 
 <script>
 const S = {
   convs: [], byId: {}, manifest: {items: []}, annotations: [], patterns: {modes: []},
   suggestions: [], labels: {}, view: 'review', cur: null, pending: null, editing: null,
+  judges: {}, judgeSel: null, judgeFilter: 'disagree',
 };
 const BATCH_NAMES = {
   initial_random: 'Initial random (15)', cluster: 'Cluster representatives (15)',
@@ -346,7 +359,7 @@ function renderConv() {
       <div class="turn-divider">Turn ${t + 1} · <a href="${esc(turn.permalink || '#')}" target="_blank" rel="noopener" class="mono">${esc(short(turn.trace_id))}</a> · ${esc((turn.timestamp || '').replace('T', ' ').slice(0, 19))}</div>
       ${renderMessages(turn, t)}`).join('')}</div>
       <div class="margin" id="margin"></div></div>
-    ${renderLabelPanel(c.id)}`;
+    ${renderLabelPanel(c.id)}${renderJudgePanel(c.id)}`;
   $('prev').onclick = () => step(-1); $('next').onclick = () => step(1);
   $('clean').onclick = () => toggleClean(c);
   main.querySelectorAll('.rawtoggle').forEach((b) => b.onclick = () => { const p = b.nextElementSibling; p.hidden = !p.hidden; });
@@ -511,6 +524,52 @@ async function saveAnnotations() {
   try { localStorage.setItem('hw4-annotations-backup', JSON.stringify(clean)); } catch {}
   try { await api('/api/annotations', {annotations: clean}); S.savedAnnotations = JSON.stringify(clean); setStatus('saved'); }
   catch (e) { setStatus('SAVE FAILED: ' + e.message); toast('Save failed: ' + e.message); }
+}
+
+/* ---------- HW5 judge ---------- */
+const PF = (v) => (v === 1 ? 'Pass' : v === 0 ? 'Fail' : '');
+function judgeModes() { return Object.keys(S.judges || {}); }
+function currentJudge() {
+  for (const mode of judgeModes()) {
+    const js = S.judges[mode].judges;
+    const j = js.find((x) => x.judge_id === S.judgeSel) || js[js.length - 1];
+    if (j) return {mode, j, info: S.judges[mode]};
+  }
+  return null;
+}
+function renderJudgePanel(cid) {
+  const cur = currentJudge(); if (!cur) return '';
+  const h = cur.info.labels[cid]; if (!h) return '';
+  const pred = cur.j.predictions[cid], split = cur.info.split[cid] || 'not a judge input';
+  const verdict = pred === undefined
+    ? `<span class="muted">${split === 'test' && !cur.j.frozen ? 'test split: hidden until the judge is frozen' : 'no verdict for this conversation'}</span>`
+    : `<span class="verdict ${PF(pred)}">judge ${PF(pred)}</span> ${pred !== h.label ? '<b>disagrees</b>' : '<span class="muted">agrees</span>'}`;
+  return `<div class="judge-panel"><h3>HW5 judge <span class="mono muted" style="font-weight:400">${esc(cur.j.judge_id)} · ${esc(cur.j.model)} · ${esc(split)}</span></h3>
+    <div><span class="verdict ${PF(h.label)}">human ${PF(h.label)}</span> ${verdict}</div>
+    ${h.evidence ? `<div class="muted" style="margin-top:4px">Your evidence: ${esc(h.evidence)}</div>` : ''}
+    ${pred !== undefined ? `<div class="jcrit" style="margin-top:6px">${esc(cur.j.critiques[cid] || '')}</div>` : ''}</div>`;
+}
+function renderJudge() {
+  const el = $('judge'); const cur = currentJudge();
+  if (!cur) { el.innerHTML = '<h2>Judge</h2><div class="muted">No HW5 judge has run yet.</div>'; return; }
+  const {mode, j, info} = cur;
+  const ids = Object.keys(j.predictions).filter((id) => info.labels[id]);
+  const dis = ids.filter((id) => j.predictions[id] !== info.labels[id].label);
+  let shown = S.judgeFilter === 'disagree' ? dis : ids;
+  shown = shown.sort((a, b) => (S.byId[a]?.scenario_id || '').localeCompare(S.byId[b]?.scenario_id || ''));
+  const versions = info.judges.map((x) => `<option value="${esc(x.judge_id)}" ${x.judge_id === j.judge_id ? 'selected' : ''}>${esc(x.judge_id)}${x.frozen ? ' (frozen)' : ''}</option>`).join('');
+  el.innerHTML = `<h2>Judge <span class="muted" style="font-size:13px;font-weight:400">${esc(mode)} · ${ids.length} verdicts · ${dis.length} disagreements${j.hidden_test_predictions ? ` · ${j.hidden_test_predictions} test verdicts hidden until frozen` : ''}</span></h2>
+    <p><select id="j-ver">${versions}</select>
+      <select id="j-filter"><option value="disagree" ${S.judgeFilter === 'disagree' ? 'selected' : ''}>Disagreements only</option><option value="all" ${S.judgeFilter === 'all' ? 'selected' : ''}>All verdicts</option></select>
+      <span class="muted">Click a row to open the conversation.</span></p>
+    <table class="jtable"><tr><th>Conversation</th><th>Split</th><th>Human</th><th>Judge</th><th>Judge critique</th><th>Your evidence</th></tr>
+    ${shown.map((id) => { const h = info.labels[id], p = j.predictions[id];
+      return `<tr data-id="${esc(id)}" class="${p !== h.label ? 'disagree' : ''}"><td class="mono">${esc(S.byId[id]?.scenario_id || short(id))}</td><td>${esc(info.split[id] || '')}</td>
+        <td><span class="verdict ${PF(h.label)}">${PF(h.label)}</span></td><td><span class="verdict ${PF(p)}">${PF(p)}</span></td>
+        <td class="jcrit">${esc(j.critiques[id] || '')}</td><td>${esc(h.evidence || '')}</td></tr>`; }).join('')}</table>`;
+  $('j-ver').onchange = (e) => { S.judgeSel = e.target.value; renderJudge(); };
+  $('j-filter').onchange = (e) => { S.judgeFilter = e.target.value; renderJudge(); };
+  el.querySelectorAll('tr[data-id]').forEach((r) => r.onclick = () => { S.cur = r.dataset.id; $('f-scope').value = 'all'; switchView('review'); });
 }
 
 /* ---------- labels ---------- */
@@ -703,6 +762,8 @@ function updateCounts() {
   $('c-taxonomy').textContent = (S.patterns.modes || []).length || '';
   $('c-suggestions').textContent = pendingSuggs().length || '';
   const conf = confirmedModes();
+  const cj = currentJudge();
+  $('c-judge').textContent = cj ? Object.keys(cj.j.predictions).filter((id) => cj.info.labels[id] && cj.j.predictions[id] !== cj.info.labels[id].label).length || '' : '';
   $('c-labeling').textContent = conf.length ? items.filter((i) => conf.every((m) => labelOf(m.name, i.conversation_id))).length + '/' + items.length : '';
 }
 function switchView(v) {
@@ -718,6 +779,7 @@ function render() {
   if (S.view === 'suggestions') renderSuggestions();
   if (S.view === 'labeling') renderLabeling();
   if (S.view === 'progress') renderProgress();
+  if (S.view === 'judge') renderJudge();
 }
 function fillBatchFilter() {
   const batches = [...new Set(manifestItems().map((i) => i.batch))];
@@ -738,6 +800,8 @@ async function poll() {
     if (JSON.stringify(patterns) !== JSON.stringify(S.patterns)) changed.push('taxonomy updated');
     if (suggestions.length !== S.suggestions.length) changed.push(`${suggestions.length - S.suggestions.length} new suggestion(s)`);
     const labelsChanged = JSON.stringify(labels) !== JSON.stringify(S.labels);
+    const judges = await api('/api/judges');
+    if (JSON.stringify(judges) !== JSON.stringify(S.judges)) { S.judges = judges; changed.push('judge results updated'); }
     const sync = await api('/api/labels/sync');
     if (sync.failed.length) setStatus(`${sync.failed.length} Langfuse score(s) failed; labels are saved locally`);
     if (!changed.length && !labelsChanged && !annsChanged) return;
@@ -762,6 +826,7 @@ window.addEventListener('resize', () => { if (S.view === 'review' && S.cur) layo
     ['/api/conversations', '/api/manifest', '/api/annotations', '/api/patterns', '/api/suggestions', '/api/labels'].map((p) => api(p)));
   S.convs = convs; S.byId = Object.fromEntries(convs.map((c) => [c.id, c]));
   S.manifest = manifest; S.annotations = ann.annotations || []; S.savedAnnotations = JSON.stringify(S.annotations); S.patterns = patterns; S.suggestions = suggestions; S.labels = labels;
+  try { S.judges = await api('/api/judges'); } catch { S.judges = {}; }
   if (!manifestItems().length) $('f-scope').value = 'all';
   fillBatchFilter();
   const ids = listConvs(); S.cur = ids[0] || null;

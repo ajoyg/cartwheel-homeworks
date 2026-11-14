@@ -1,0 +1,27 @@
+{
+  "judge_id": "uncited_policy_claim-v1",
+  "split": "dev",
+  "tpr": 0.8889,
+  "tnr": 0.9545,
+  "tpr_interval": [
+    0.672,
+    0.969
+  ],
+  "tnr_interval": [
+    0.782,
+    0.9919
+  ],
+  "agreement": 0.925,
+  "tp": 16,
+  "fn": 2,
+  "tn": 21,
+  "fp": 1,
+  "n": 40,
+  "disagreements": [
+    "254389fe6da1da1b34ad567bfecb92d8",
+    "82ed69e244ca116435debdfd55208c62",
+    "e8854c6d1cb4d6543cdb08208cc55d77"
+  ],
+  "prompt_path": "analysis/prompts/uncited_policy_claim-v1.txt",
+  "model": "gpt-4o-mini"
+}

@@ -36,6 +36,7 @@ API:
     POST /api/suggestions/decide    accept or reject one suggestion
     GET  /api/labels                live present/absent labels by mode
     GET  /api/labels/sync           Langfuse score writes still queued or failed
+    GET  /api/judges                HW5 labels, judge verdicts and critiques
     POST /api/labels                record one label (file + Langfuse score)
 """
 
@@ -266,6 +267,48 @@ def _mode_names() -> list[str]:
     return [m["name"] for m in patterns.get("modes", []) if m.get("name")]
 
 
+def hw5_judges() -> dict[str, Any]:
+    """HW5 labels (1 = Pass) beside each judge version's verdicts and critiques.
+
+    Test predictions stay hidden until a judge is frozen, so the test split
+    cannot steer prompt edits.
+    """
+    from analysis.helpers.guards import is_frozen
+
+    splits = _read_json(STATE_DIR / "splits.json", {})
+    out: dict[str, Any] = {}
+    for labels_path in sorted((STATE_DIR / "hw5_labels").glob("*.jsonl")):
+        mode = labels_path.stem
+        labels = {row["trace_id"]: row for row in _read_jsonl(labels_path) if not row.get("superseded_by")}
+        split = splits.get(mode, {})
+        where = {tid: name for name in ("train", "dev", "test") for tid in split.get(name, [])}
+        judges = []
+        history = _read_json(STATE_DIR / "judges" / f"_history_{mode}.json", {"versions": []})
+        for version in history["versions"]:
+            judge = _read_json(STATE_DIR / "judges" / f"{version['judge_id']}.json", None)
+            if not judge:
+                continue
+            frozen = is_frozen(judge)
+            visible = ("train", "dev", "test") if frozen else ("train", "dev")
+            preds = judge.get("predictions", {}).get(judge["prompt_hash"], {})
+            crits = judge.get("critiques", {}).get(judge["prompt_hash"], {})
+            if judge.get("label_convention") != "pass_positive":
+                preds = {tid: 1 - int(p) for tid, p in preds.items()}
+            keep = [tid for tid in preds if where.get(tid) in visible]
+            judges.append({
+                "judge_id": judge["judge_id"], "model": judge.get("model"), "frozen": frozen,
+                "predictions": {tid: int(preds[tid]) for tid in keep},
+                "critiques": {tid: crits.get(tid, "") for tid in keep},
+                "hidden_test_predictions": sum(where.get(tid) == "test" for tid in preds) if not frozen else 0,
+            })
+        out[mode] = {
+            "labels": {tid: {"label": row["label"], "evidence": row.get("evidence", "")} for tid, row in labels.items()},
+            "split": where,
+            "judges": judges,
+        }
+    return out
+
+
 def live_labels() -> dict[str, dict[str, Any]]:
     """Return ``{mode: {conversation_id: row}}`` for the current taxonomy."""
     out: dict[str, dict[str, Any]] = {}
@@ -447,6 +490,8 @@ class Handler(BaseHTTPRequestHandler):
             self._json(CONVERSATIONS)
         elif path == "/api/labels":
             self._json(live_labels())
+        elif path == "/api/judges":
+            self._json(hw5_judges())
         elif path == "/api/labels/sync":
             self._json({"pending": _score_queue.unfinished_tasks, "failed": _score_failures})
         elif path in API_FILES:

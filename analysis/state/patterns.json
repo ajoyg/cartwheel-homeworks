@@ -3,12 +3,12 @@
     {
       "name": "uncited_policy_claim",
       "status": "confirmed",
-      "definition": "The reply states a policy rule or a policy-based verdict (payouts, returns, refunds, cancellations), including an eligibility verdict taken only from the order's refund_eligible flag, without citing a policy identifier.",
+      "definition": "A reply states a policy rule or a policy-based verdict, or attributes something to policy, without a policy identifier cited anywhere in the conversation's replies. Any Cartwheel or store policy counts (returns, refunds, cancellations, payouts, escalations, roles, disputes and the rest), including an eligibility verdict taken only from the order's refund_eligible flag.",
       "requirement_source": "SPEC RESP-1",
       "evaluator_type": "llm_judge",
       "product_change": "Prompt and retrieval: look up the relevant policy and cite its identifier in every policy-based answer.",
-      "boundary": "An eligibility verdict counts even when it comes only from refund_eligible. A reply that reports record facts without a verdict or rule is not this mode. A rule that is wrong or goes beyond the policy text is incorrect_policy_claim. A refund-eligibility field in a list of record fields is a record fact; a sentence such as 'please note this order is not eligible' is a verdict (0150 and 0010 against 0017). A statement that an order can or cannot be cancelled is a verdict.",
-      "nearest_mode": "missing_data_not_flagged",
+      "boundary": "Fail: stating what a policy says (time limits, who may see or do what, eligibility conditions), e.g. 'support teams aim to respond within 24 to 48 hours' (0070) or 'I can only look up your own orders' (0227); attributing an outcome to policy, e.g. 'due to privacy policies' (0226); a verdict such as 'please note this order is not eligible' or 'can/cannot be cancelled'. Pass: a citation anywhere in the conversation's replies covers later claims (0062); reporting record facts, including a refund-eligibility field in a list of order fields and a follow-up time relayed from the tool's sla_hours (0094, 0103); naming a generic restriction without stating the rule ('due to privacy restrictions', 'permission restrictions for merchants': 0228, 0231); saying what the assistant itself cannot do ('I can't make account changes', 0175; 'I can't provide specific legal advice', 0173). Against incorrect_policy_claim: this mode is about citation only, so a wrong uncited rule is Fail for both modes and a wrong but cited rule (0207) is Pass here.",
+      "nearest_mode": "incorrect_policy_claim",
       "origin_annotation_ids": [
         "ann-mvsylbh9-bvsr",
         "ann-mvsy29yw-3r6b",
@@ -93,7 +93,10 @@
         "eb1826a96c8fbb24d2ad4c75338f7a9a",
         "a4380e59a66c5080ba429e7490d8f4b8",
         "f7d7a47dedc285dcaa4af055923e4b46",
-        "3805a49e02a130594324057b277c776a"
+        "3805a49e02a130594324057b277c776a",
+        "d4d50351d78352d97923670bee16c5e5",
+        "49bfbb23a48880bf31db68205dbc40f3",
+        "e8854c6d1cb4d6543cdb08208cc55d77"
       ],
       "close_negative_ids": [
         "2d4e13a7d1328e797540cbec37382805",
@@ -142,6 +145,14 @@
           "at": "2026-10-31T17:36:43+00:00",
           "change": "24 conversations labeled present in Part E after the final consistency check",
           "reason": "a filter for verdict sentences with no policy identifier disagreed with these absent labels; the student reviewed the groups and applied the definition consistently; first-pass notes are kept as written"
+        },
+        {
+          "at": "2026-11-09T03:33:05+00:00",
+          "change": "HW5: scope widened to any policy-derived claim; citation anywhere in the replies covers later claims; nearest mode changed to incorrect_policy_claim; 0070, 0226 and 0227 relabeled present in the HW5 labels",
+          "reason": "student decisions on 2026-11-08 in the HW5 boundary check; HW4 label files unchanged; wording drafted by Claude for the student to review",
+          "previous_definition": "The reply states a policy rule or a policy-based verdict (payouts, returns, refunds, cancellations), including an eligibility verdict taken only from the order's refund_eligible flag, without citing a policy identifier.",
+          "previous_boundary": "An eligibility verdict counts even when it comes only from refund_eligible. A reply that reports record facts without a verdict or rule is not this mode. A rule that is wrong or goes beyond the policy text is incorrect_policy_claim. A refund-eligibility field in a list of record fields is a record fact; a sentence such as 'please note this order is not eligible' is a verdict (0150 and 0010 against 0017). A statement that an order can or cannot be cancelled is a verdict.",
+          "previous_nearest_mode": "missing_data_not_flagged"
         }
       ]
     },
