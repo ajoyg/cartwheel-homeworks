@@ -53,4 +53,4 @@ Test split: 41 conversations (18 Pass, 23 Fail). Judge model `gpt-4o-mini`. Metr
 
 No labels or prompts were changed after the test run.
 
-Would I use this judge: PENDING — student to write this in their own words.
+Would I use this judge: The v2 judge has a true negative rate (TNR) of 95.7%, it catches 22 of 23 failures, that is good. It does introduce noise with a true positive rate of 83.3%, it passes 15 of 18 good conversations. I will use the judge but will monitor the pass and failure rate over time, if the TPR reduces further, I will stop the judge as it would mean more human review.
