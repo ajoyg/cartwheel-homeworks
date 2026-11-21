@@ -326,3 +326,73 @@ def test_capability_analysis_uses_5_10_and_15_observed_runs(
         "10",
         "15",
     }
+
+
+def _write_per_trial_job(job: Path, trials: list[dict]) -> None:
+    """Lay out a job the way Harbor 0.23.0 does: no trial_results in the job
+    result.json, one result.json per trial directory."""
+    job.mkdir()
+    (job / "result.json").write_text(json.dumps({"id": "job", "n_total_trials": len(trials)}))
+    for trial in trials:
+        trial_dir = job / trial["trial_name"]
+        trial_dir.mkdir()
+        (trial_dir / "result.json").write_text(json.dumps(trial))
+
+
+def test_summary_reads_per_trial_results_from_harbor_0_23(tmp_path: Path) -> None:
+    cases_path = tmp_path / "cases.jsonl"
+    case = {
+        "id": "e-501",
+        "mode": "response_quality",
+        "input": {"role": "shopper", "user_id": 1, "message": "hello"},
+        "initial_state": {"world": "reseed", "fixture": None},
+        "expected": {"checks": [{"check": "reply_asks_question"}]},
+    }
+    _write_cases(cases_path, [case])
+    trials = [
+        {
+            "task_name": "cartwheel/evals__e-501",
+            "trial_name": f"e-501__t{i}",
+            "started_at": f"2026-11-18T21:36:4{i}",
+            "verifier_result": {"rewards": {"reward": value}},
+            "exception_info": None,
+        }
+        for i, value in enumerate([1, 0, 0, 0, 0])
+    ]
+    job = tmp_path / "job"
+    _write_per_trial_job(job, trials)
+
+    markdown, _ = summarize_job(
+        job, cases_path=cases_path, expected_attempts=5, classify=True
+    )
+
+    assert "no baseline trials matched" not in markdown
+    assert '`kind: "capability"`, `baseline_pass_rate: 0.2`' in markdown
+
+
+def test_analysis_orders_per_trial_results_by_start_time(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    import harbor_adapter.analysis as analysis
+
+    monkeypatch.setattr(analysis, "pass_at_k", lambda n, c, k: (n + c + k) / 100)
+    trials = [
+        {
+            "task_name": "cartwheel/evals__e-502",
+            # Directory names sort in a different order from start times.
+            "trial_name": f"e-502__{chr(ord('z') - i)}",
+            "started_at": f"2026-11-18T22:{i:02d}:00",
+            "verifier_result": {"rewards": {"reward": 1 if i % 3 == 0 else 0}},
+            "agent_info": {"model_info": {"provider": "openai", "name": "gpt-4o-mini"}},
+            "exception_info": None,
+        }
+        for i in range(15)
+    ]
+    job = tmp_path / "job"
+    _write_per_trial_job(job, trials)
+
+    result = analysis.analyze_capability_job(job, "e-502")
+
+    assert [t["trial_name"] for t in result["trials"]] == [t["trial_name"] for t in trials]
+    assert result["rewards"][:4] == [1, 0, 0, 1]
+    assert result["trial_order"] == "per-trial result.json files ordered by started_at"
